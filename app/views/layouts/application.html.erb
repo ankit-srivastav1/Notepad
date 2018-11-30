@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Notepad</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <p id="notice"><%= notice %></p>
+
+  <h1>Notes</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @notes.each do |note| %>
+      <tr>
+        <td><%= note.description %></td>
+        <td><%= link_to 'Show', note %></td>
+        <td><%= link_to 'Edit', edit_note_path(note) %></td>
+        <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Note', new_note_path %>
+
+
+  <div class="r">
+    cxfdsfrds
+  </div>
+
+  <%= yield %>
+</body>
+</html>
